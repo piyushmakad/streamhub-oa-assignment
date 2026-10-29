@@ -214,8 +214,6 @@ See [`self-healing/SELF_HEALING.md`](self-healing/SELF_HEALING.md) for the full 
 
 ## Using Claude Code — reflection
 
-> _Personal reflection: edit to match your own experience before submitting._
-
 I used Claude Code as a pair programmer for the whole build, not just the scaffold.
 
 **What worked**
