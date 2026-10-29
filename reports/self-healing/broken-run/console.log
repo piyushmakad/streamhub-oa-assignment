@@ -1,0 +1,51 @@
+
+> streamhub-qa-automation@1.0.0 test:broken
+> cucumber-js --profile broken
+
+
+▶ TEST_ENV=qa  API=http://localhost:3000  EMI=https://emicalculator.net/  SELF_HEAL=false
+
+........F---...F-.
+
+Failures:
+
+1) Scenario: Personal loan EMI through the legacy page object (broken locators #1-#4) # tests\features\ui\self_healing_broken_locators.feature:14
+   √ Before # tests\support\hooks.ts:45
+   √ Given I launch the EMI calculator # tests\step-definitions\ui\emi-calculator.steps.ts:27
+   × When I open the Personal Loan tab using the legacy page object # tests\step-definitions\ui\self-healing.steps.ts:39
+       locator.click: Timeout 5000ms exceeded.
+       Call log:
+         - waiting for locator('div.loanproduct-nav > li:nth-child(2) > a')
+
+           at LegacyEmiCalculatorPage.openPersonalLoanTab (D:\Piyush Projects\streamhub-qa-automation\tests\pages\legacy\LegacyEmiCalculatorPage.ts:68:62)
+           at async CustomWorld.<anonymous> (D:\Piyush Projects\streamhub-qa-automation\tests\step-definitions\ui\self-healing.steps.ts:40:3)
+   - And I type a loan amount of "10L" and an interest rate of 12% using the legacy page object # tests\step-definitions\ui\self-healing.steps.ts:43
+   - And I set a tenure of 5 years using the resilient page object # tests\step-definitions\ui\self-healing.steps.ts:52
+   - Then the EMI read through the legacy page object should match my independently calculated EMI # tests\step-definitions\ui\self-healing.steps.ts:58
+   √ After # tests\support\hooks.ts:61
+       Attachment (image/png)
+
+2) Scenario: A hallucinated locator must not be "healed" onto a different element (broken locator #5) # tests\features\ui\self_healing_broken_locators.feature:21
+   √ Before # tests\support\hooks.ts:45
+   √ Given I launch the EMI calculator # tests\step-definitions\ui\emi-calculator.steps.ts:27
+   × When I try to click the legacy "Calculate EMI" button # tests\step-definitions\ui\self-healing.steps.ts:63
+       locator.click: Timeout 5000ms exceeded.
+       Call log:
+         - waiting for locator('button:has-text("Calculate EMI")')
+
+           at LegacyEmiCalculatorPage.clickCalculate (D:\Piyush Projects\streamhub-qa-automation\tests\pages\legacy\LegacyEmiCalculatorPage.ts:84:62)
+           at async CustomWorld.<anonymous> (D:\Piyush Projects\streamhub-qa-automation\tests\step-definitions\ui\self-healing.steps.ts:66:5)
+   - Then the healer should refuse to substitute a different element # tests\step-definitions\ui\self-healing.steps.ts:75
+   √ After # tests\support\hooks.ts:61
+       Attachment (image/png)
+
+3 scenarios (2 failed, 1 passed)
+12 steps (2 failed, 4 skipped, 6 passed)
+0m39.813s (executing steps: 0m39.697s)
+  ⚠ broken locator "legacy.loanAmountInput" (#loan-amount): locator.waitFor: Timeout 3000ms exceeded. — self-healing is off
+  ⚠ broken locator "legacy.interestRateInput" (xpath=/html/body/div[1]/div[3]/div/div[2]/div/form/div[2]/div[1]/div/input): locator.waitFor: Timeout 3000ms exceeded. — self-healing is off
+  ⚠ broken locator "legacy.personalLoanTab" (div.loanproduct-nav > li:nth-child(2) > a): locator.waitFor: Timeout 3000ms exceeded. — self-healing is off
+  ⚠ broken locator "legacy.emiValue" (#emiamount > p > strong): locator.waitFor: Timeout 3000ms exceeded. — self-healing is off
+  ⚠ broken locator "legacy.calculateButton" (button:has-text("Calculate EMI")): locator.waitFor: Timeout 3000ms exceeded. — self-healing is off
+  ⚠ broken locator "legacy.personalLoanTab" (div.loanproduct-nav > li:nth-child(2) > a): locator.waitFor: Timeout 3000ms exceeded. — self-healing is off
+  ⚠ broken locator "legacy.calculateButton" (button:has-text("Calculate EMI")): locator.waitFor: Timeout 3000ms exceeded. — self-healing is off

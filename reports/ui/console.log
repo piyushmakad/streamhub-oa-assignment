@@ -1,0 +1,12 @@
+
+> streamhub-qa-automation@1.0.0 test:ui
+> cucumber-js --profile ui
+
+
+▶ TEST_ENV=qa  API=http://localhost:3000  EMI=https://emicalculator.net/  SELF_HEAL=false
+
+..................................................
+
+4 scenarios (4 passed)
+42 steps (42 passed)
+0m26.995s (executing steps: 0m26.765s)

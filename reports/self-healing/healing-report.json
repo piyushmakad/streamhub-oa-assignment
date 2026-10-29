@@ -1,0 +1,900 @@
+[
+  {
+    "timestamp": "2026-10-29T12:19:29.901Z",
+    "key": "legacy.loanAmountInput",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "#loan-amount",
+    "intent": "Text input where the user types the loan amount",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.getByLabel('Home Loan Amount', { exact: true })",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Home Loan Amount",
+          "confidence": 1,
+          "reasoning": "candidate #19 <input id=loanamount> scored 27.0 on tokens [input, where, user, types, loan, amount]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Home Loan Amount"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "is editable",
+            "passed": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:33.072Z",
+    "key": "legacy.interestRateInput",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "xpath=/html/body/div[1]/div[3]/div/div[2]/div/form/div[2]/div[1]/div/input",
+    "intent": "Text input for the annual interest rate percentage",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.getByLabel('Interest Rate', { exact: true })",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Interest Rate",
+          "confidence": 1,
+          "reasoning": "candidate #40 <input id=loaninterest> scored 18.0 on tokens [input, annual, interest, rate, percentage, form]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Interest Rate"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "is editable",
+            "passed": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:36.287Z",
+    "key": "legacy.personalLoanTab",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "div.loanproduct-nav > li:nth-child(2) > a",
+    "intent": "Personal Loan tab link in the loan product navigation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.getByRole('link', { name: 'Personal Loan', exact: true })",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "role",
+          "value": "link",
+          "name": "Personal Loan",
+          "confidence": 1,
+          "reasoning": "candidate #15 <a> scored 16.0 on tokens [personal, loan, tab, link, product, navigation, loanproduct, nav]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "link"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of a",
+            "passed": true,
+            "detail": "a"
+          },
+          {
+            "check": "text matches /^Personal Loan$/",
+            "passed": true,
+            "detail": "Personal Loan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:39.513Z",
+    "key": "legacy.emiValue",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "#emiamount > p > strong",
+    "intent": "The displayed monthly Loan EMI amount figure",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.locator('#emiamount span')",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#emiamount span",
+          "confidence": 1,
+          "reasoning": "candidate #78 <span> scored 14.5 on tokens [displayed, monthly, loan, emi, amount, figure, emiamount, strong]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#emiamount span"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of span/strong/p",
+            "passed": true,
+            "detail": "span"
+          },
+          {
+            "check": "text matches /^[\\d,]+$/",
+            "passed": true,
+            "detail": "44,986"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:42.649Z",
+    "key": "legacy.calculateButton",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "button:has-text(\"Calculate EMI\")",
+    "intent": "Calculate EMI submit button that triggers the calculation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "no-safe-candidate",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Schedule showing EMI payments starting from",
+          "confidence": 1,
+          "reasoning": "candidate #106 <input id=startmonthyear> scored 8.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Schedule showing EMI payments starting from"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#startmonthyear",
+          "confidence": 1,
+          "reasoning": "candidate #106 <input id=startmonthyear> scored 8.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#startmonthyear"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#emipaymentscheduleheader input",
+          "confidence": 1,
+          "reasoning": "candidate #106 <input id=startmonthyear> scored 8.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#emipaymentscheduleheader input"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Home Loan Amount",
+          "confidence": 0.53,
+          "reasoning": "candidate #19 <input id=loanamount> scored 4.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Home Loan Amount"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "0.53"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#loanamount",
+          "confidence": 0.53,
+          "reasoning": "candidate #19 <input id=loanamount> scored 4.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#loanamount"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "0.53"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#emicalculatorinnerform input",
+          "confidence": 0.53,
+          "reasoning": "candidate #19 <input id=loanamount> scored 4.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#emicalculatorinnerform input"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "0.53"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": false,
+            "detail": "matched 7"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:48.335Z",
+    "key": "legacy.personalLoanTab",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "div.loanproduct-nav > li:nth-child(2) > a",
+    "intent": "Personal Loan tab link in the loan product navigation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.getByRole('link', { name: 'Personal Loan', exact: true })",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "role",
+          "value": "link",
+          "name": "Personal Loan",
+          "confidence": 1,
+          "reasoning": "candidate #15 <a> scored 16.0 on tokens [personal, loan, tab, link, product, navigation, loanproduct, nav]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "link"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of a",
+            "passed": true,
+            "detail": "a"
+          },
+          {
+            "check": "text matches /^Personal Loan$/",
+            "passed": true,
+            "detail": "Personal Loan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:51.613Z",
+    "key": "legacy.loanAmountInput",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "#loan-amount",
+    "intent": "Text input where the user types the loan amount",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.getByLabel('Personal Loan Amount', { exact: true })",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Personal Loan Amount",
+          "confidence": 1,
+          "reasoning": "candidate #19 <input id=loanamount> scored 27.0 on tokens [input, where, user, types, loan, amount]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Personal Loan Amount"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "is editable",
+            "passed": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:54.845Z",
+    "key": "legacy.interestRateInput",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "xpath=/html/body/div[1]/div[3]/div/div[2]/div/form/div[2]/div[1]/div/input",
+    "intent": "Text input for the annual interest rate percentage",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.getByLabel('Interest Rate', { exact: true })",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Interest Rate",
+          "confidence": 1,
+          "reasoning": "candidate #36 <input id=loaninterest> scored 18.0 on tokens [input, annual, interest, rate, percentage, form]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Interest Rate"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "is editable",
+            "passed": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:19:58.283Z",
+    "key": "legacy.emiValue",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "#emiamount > p > strong",
+    "intent": "The displayed monthly Loan EMI amount figure",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "healed",
+    "healedLocator": "page.locator('#emiamount span')",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#emiamount span",
+          "confidence": 1,
+          "reasoning": "candidate #76 <span> scored 14.5 on tokens [displayed, monthly, loan, emi, amount, figure, emiamount, strong]"
+        },
+        "accepted": true,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#emiamount span"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of span/strong/p",
+            "passed": true,
+            "detail": "span"
+          },
+          {
+            "check": "text matches /^[\\d,]+$/",
+            "passed": true,
+            "detail": "22,244"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-29T12:20:07.283Z",
+    "key": "legacy.calculateButton",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "button:has-text(\"Calculate EMI\")",
+    "intent": "Calculate EMI submit button that triggers the calculation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "heuristic",
+    "status": "no-safe-candidate",
+    "validations": [
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Schedule showing EMI payments starting from",
+          "confidence": 1,
+          "reasoning": "candidate #106 <input id=startmonthyear> scored 8.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Schedule showing EMI payments starting from"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#startmonthyear",
+          "confidence": 1,
+          "reasoning": "candidate #106 <input id=startmonthyear> scored 8.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#startmonthyear"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#emipaymentscheduleheader input",
+          "confidence": 1,
+          "reasoning": "candidate #106 <input id=startmonthyear> scored 8.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#emipaymentscheduleheader input"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "1"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "label",
+          "value": "Home Loan Amount",
+          "confidence": 0.53,
+          "reasoning": "candidate #19 <input id=loanamount> scored 4.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "Home Loan Amount"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "0.53"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#loanamount",
+          "confidence": 0.53,
+          "reasoning": "candidate #19 <input id=loanamount> scored 4.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#loanamount"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "0.53"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": true,
+            "detail": "matched 1"
+          },
+          {
+            "check": "is visible",
+            "passed": true
+          },
+          {
+            "check": "tag is one of button/input",
+            "passed": true,
+            "detail": "input"
+          },
+          {
+            "check": "text matches /calculate/i",
+            "passed": false,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "suggestion": {
+          "strategy": "css",
+          "value": "#emicalculatorinnerform input",
+          "confidence": 0.53,
+          "reasoning": "candidate #19 <input id=loanamount> scored 4.5 on tokens [calculate, emi, submit, button, that, triggers, calculation, has]"
+        },
+        "accepted": false,
+        "checks": [
+          {
+            "check": "not positional",
+            "passed": true,
+            "detail": "#emicalculatorinnerform input"
+          },
+          {
+            "check": "confidence ≥ 0.3",
+            "passed": true,
+            "detail": "0.53"
+          },
+          {
+            "check": "matches exactly one element",
+            "passed": false,
+            "detail": "matched 7"
+          }
+        ]
+      }
+    ]
+  }
+]

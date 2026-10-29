@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<testsuite name="Cucumber" time="26.995" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-29T12:18:11.152Z">
+  <testcase classname="Test Case 2 - Validate the EMI bar chart (Personal Loan)" name="Bar chart for a loan starting &lt;start> - &lt;bars> bars, tooltip for the &lt;series> bar of &lt;year> - #1.1: Bar chart for a loan starting Jan 2027 - 10 bars, tooltip for the Principal bar of 2028" time="9.011">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I navigate to the "Personal Loan" tab..................................passed
+And I use the sliders to set a loan amount of "10L", an interest rate of 12% and a tenure of 5 years..passed
+Then the displayed EMI should match my independently calculated EMI.........passed
+When I change the schedule start month to "Jan 2027" using the calendar widget..passed
+Then the bar chart should be visible and available..........................passed
+And the bar chart should show the calendar years "2027,2028,2029,2030,2031"..passed
+And the bar chart should contain 10 bars in total...........................passed
+And each calendar year should have one Principal bar and one Interest bar...passed
+When I hover over the "Principal" bar for 2028..............................passed
+Then the tooltip should show the year 2028..................................passed
+And the tooltip's Principal and Total Payment values should match my amortisation schedule..passed]]></system-out>
+  </testcase>
+  <testcase classname="Test Case 2 - Validate the EMI bar chart (Personal Loan)" name="Bar chart for a loan starting &lt;start> - &lt;bars> bars, tooltip for the &lt;series> bar of &lt;year> - #1.2: Bar chart for a loan starting Jul 2027 - 12 bars, tooltip for the Interest bar of 2027" time="6.408">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I navigate to the "Personal Loan" tab..................................passed
+And I use the sliders to set a loan amount of "10L", an interest rate of 12% and a tenure of 5 years..passed
+Then the displayed EMI should match my independently calculated EMI.........passed
+When I change the schedule start month to "Jul 2027" using the calendar widget..passed
+Then the bar chart should be visible and available..........................passed
+And the bar chart should show the calendar years "2027,2028,2029,2030,2031,2032"..passed
+And the bar chart should contain 12 bars in total...........................passed
+And each calendar year should have one Principal bar and one Interest bar...passed
+When I hover over the "Interest" bar for 2027...............................passed
+Then the tooltip should show the year 2027..................................passed
+And the tooltip's Interest and Total Payment values should match my amortisation schedule..passed]]></system-out>
+  </testcase>
+  <testcase classname="Test Case 1 - Validate the EMI pie chart (Home Loan)" name="&lt;name> - EMI and pie chart for &lt;amount> at &lt;rate>% over &lt;tenure> years - #1.1: Scenario A - EMI and pie chart for 25L at 10% over 10 years" time="5.369">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I navigate to the "Home Loan" tab......................................passed
+When I enter a loan amount of "25L", an interest rate of 10% and a tenure of 10 years..passed
+Then the displayed EMI should match my independently calculated EMI.........passed
+And the displayed total interest and total payment should match my calculation..passed
+And the pie chart should be visible and available...........................passed
+And the pie chart should have 2 sections: "Principal Loan Amount" and "Total Interest"..passed
+And the numerical values of both pie chart sections should be greater than zero..passed
+And the pie chart split should match my calculated principal and interest share..passed]]></system-out>
+  </testcase>
+  <testcase classname="Test Case 1 - Validate the EMI pie chart (Home Loan)" name="&lt;name> - EMI and pie chart for &lt;amount> at &lt;rate>% over &lt;tenure> years - #1.2: Scenario B - EMI and pie chart for 50L at 7.5% over 15 years" time="5.995">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I navigate to the "Home Loan" tab......................................passed
+When I enter a loan amount of "50L", an interest rate of 7.5% and a tenure of 15 years..passed
+Then the displayed EMI should match my independently calculated EMI.........passed
+And the displayed total interest and total payment should match my calculation..passed
+And the pie chart should be visible and available...........................passed
+And the pie chart should have 2 sections: "Principal Loan Amount" and "Total Interest"..passed
+And the numerical values of both pie chart sections should be greater than zero..passed
+And the pie chart split should match my calculated principal and interest share..passed]]></system-out>
+  </testcase>
+</testsuite>

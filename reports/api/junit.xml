@@ -1,0 +1,563 @@
+<?xml version="1.0"?>
+<testsuite name="Cucumber" time="1.266" tests="88" skipped="0" failures="0" errors="0" timestamp="2026-10-29T12:18:03.793Z">
+  <testcase classname="Catalogue API - genres, health and routing" name="Health check" time="0.128">
+    <system-out><![CDATA[When I call the health endpoint.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "health" schema...........................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Genres are listed alphabetically by default" time="0.022">
+    <system-out><![CDATA[When I request the genres...................................................passed
+Then the response status should be 200......................................passed
+And the response should match the "genre list" schema.......................passed
+And the genres should be sorted by "name" in "asc" order....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Sort genres by &lt;sort> in &lt;order> order - #1.1: Sort genres by name in desc order" time="0.017">
+    <system-out><![CDATA[When I request the genres with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "genre list" schema.......................passed
+And the genres should be sorted by "name" in "desc" order...................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Sort genres by &lt;sort> in &lt;order> order - #1.2: Sort genres by count in asc order" time="0.023">
+    <system-out><![CDATA[When I request the genres with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "genre list" schema.......................passed
+And the genres should be sorted by "count" in "asc" order...................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Sort genres by &lt;sort> in &lt;order> order - #1.3: Sort genres by count in desc order" time="0.018">
+    <system-out><![CDATA[When I request the genres with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "genre list" schema.......................passed
+And the genres should be sorted by "count" in "desc" order..................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Genre counts are consistent with the titles endpoint" time="0.047">
+    <system-out><![CDATA[When I request the genres...................................................passed
+Then each genre count should equal the titles total for that genre..........passed
+And the genre counts should add up to the total number of titles............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Invalid genre parameters are rejected (&lt;param>=&lt;value>) - #1.1: Invalid genre parameters are rejected (sort=popularity)" time="0.014">
+    <system-out><![CDATA[When I request the genres with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error details should name the parameters "sort".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Invalid genre parameters are rejected (&lt;param>=&lt;value>) - #1.2: Invalid genre parameters are rejected (order=up)" time="0.01">
+    <system-out><![CDATA[When I request the genres with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error details should name the parameters "order"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Invalid genre parameters are rejected (&lt;param>=&lt;value>) - #1.3: Invalid genre parameters are rejected (limit=5)" time="0.009">
+    <system-out><![CDATA[When I request the genres with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error details should name the parameters "limit"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - genres, health and routing" name="Unknown routes return a structured 404" time="0.01">
+    <system-out><![CDATA[When I send a GET request to "/api/directors"...............................passed
+Then the response status should be 404......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "NOT_FOUND"....................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Fetch an existing title" time="0.015">
+    <system-out><![CDATA[When I request the title with id "13".......................................passed
+Then the response status should be 200......................................passed
+And the response should match the "single title" schema.....................passed
+And the returned title should have id 13 and title "Wild Coasts"............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Boundary ids that exist (&lt;id>) - #1.1: Boundary ids that exist (1)" time="0.009">
+    <system-out><![CDATA[When I request the title with id "1"........................................passed
+Then the response status should be 200......................................passed
+And the response should match the "single title" schema.....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Boundary ids that exist (&lt;id>) - #1.2: Boundary ids that exist (25)" time="0.008">
+    <system-out><![CDATA[When I request the title with id "25".......................................passed
+Then the response status should be 200......................................passed
+And the response should match the "single title" schema.....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Unknown id &lt;id> returns 404 - #1.1: Unknown id 26 returns 404" time="0.008">
+    <system-out><![CDATA[When I request the title with id "26".......................................passed
+Then the response status should be 404......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "NOT_FOUND"....................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Unknown id &lt;id> returns 404 - #1.2: Unknown id 999999 returns 404" time="0.01">
+    <system-out><![CDATA[When I request the title with id "999999"...................................passed
+Then the response status should be 404......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "NOT_FOUND"....................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Malformed id &lt;id> returns 400 - #1.1: Malformed id abc returns 400" time="0.011">
+    <system-out><![CDATA[When I request the title with id "abc"......................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "id".......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Malformed id &lt;id> returns 400 - #1.2: Malformed id 0 returns 400" time="0.011">
+    <system-out><![CDATA[When I request the title with id "0"........................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "id".......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Malformed id &lt;id> returns 400 - #1.3: Malformed id -5 returns 400" time="0.011">
+    <system-out><![CDATA[When I request the title with id "-5".......................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "id".......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Malformed id &lt;id> returns 400 - #1.4: Malformed id 1.5 returns 400" time="0.011">
+    <system-out><![CDATA[When I request the title with id "1.5"......................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "id".......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Malformed id &lt;id> returns 400 - #1.5: Malformed id 1e3 returns 400" time="0.011">
+    <system-out><![CDATA[When I request the title with id "1e3"......................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "id".......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - fetch a single title" name="Query parameters are not accepted on the single-title endpoint" time="0.009">
+    <system-out><![CDATA[When I request the title with id "1" and query "fields=title"...............passed
+Then the response status should be 400......................................passed
+And the error details should name the parameters "fields"...................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Default listing returns the first page sorted by id" time="0.026">
+    <system-out><![CDATA[When I request the titles...................................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the pagination meta should be:..........................................passed
+And 10 titles should be returned............................................passed
+And the returned titles should be sorted by "id" in "asc" order.............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.1: Filter by type=movie" time="0.017">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 13..................................................passed
+And every returned title should satisfy "type" equals "movie"...............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.2: Filter by type=SERIES" time="0.016">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 12..................................................passed
+And every returned title should satisfy "type" equals "series"..............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.3: Filter by genre=Drama" time="0.012">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 4...................................................passed
+And every returned title should satisfy "genre" equals "Drama"..............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.4: Filter by genre=drama" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 4...................................................passed
+And every returned title should satisfy "genre" equals "Drama"..............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.5: Filter by language=Hindi" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 4...................................................passed
+And every returned title should satisfy "language" equals "Hindi"...........passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.6: Filter by minRating=8" time="0.014">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 9...................................................passed
+And every returned title should satisfy "rating" at least "8"...............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.7: Filter by minRating=0" time="0.022">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 25..................................................passed
+And every returned title should satisfy "rating" at least "0"...............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.8: Filter by minRating=10" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 0...................................................passed
+And every returned title should satisfy "rating" at least "10"..............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.9: Filter by q=the" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 3...................................................passed
+And every returned title should satisfy "title" contains "the"..............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.10: Filter by q=LIGHT" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 2...................................................passed
+And every returned title should satisfy "title" contains "light"............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.11: Filter by yearFrom=2023" time="0.012">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 6...................................................passed
+And every returned title should satisfy "releaseYear" at least "2023".......passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filter by &lt;param>=&lt;value> - #1.12: Filter by yearTo=2016" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 3...................................................passed
+And every returned title should satisfy "releaseYear" at most "2016"........passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Year range filter is inclusive on both ends" time="0.018">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the total should be 10..................................................passed
+And every returned title should satisfy "releaseYear" at least "2020".......passed
+And every returned title should satisfy "releaseYear" at most "2022"........passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Sort by &lt;sort> in &lt;order> order - #1.1: Sort by title in asc order" time="0.017">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the returned titles should be sorted by "title" in "asc" order..........passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Sort by &lt;sort> in &lt;order> order - #1.2: Sort by title in desc order" time="0.02">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the returned titles should be sorted by "title" in "desc" order.........passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Sort by &lt;sort> in &lt;order> order - #1.3: Sort by rating in asc order" time="0.019">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the returned titles should be sorted by "rating" in "asc" order.........passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Sort by &lt;sort> in &lt;order> order - #1.4: Sort by rating in desc order" time="0.02">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the returned titles should be sorted by "rating" in "desc" order........passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Sort by &lt;sort> in &lt;order> order - #1.5: Sort by releaseYear in asc order" time="0.017">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the returned titles should be sorted by "releaseYear" in "asc" order....passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Sort by &lt;sort> in &lt;order> order - #1.6: Sort by releaseYear in desc order" time="0.019">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the returned titles should be sorted by "releaseYear" in "desc" order...passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Sort by &lt;sort> in &lt;order> order - #1.7: Sort by id in desc order" time="0.019">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the returned titles should be sorted by "id" in "desc" order............passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Filters, sorting and pagination combine" time="0.008">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the returned title ids should be "11,20"................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Combined filters with ascending year sort break ties by id" time="0.008">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the returned title ids should be "1,22,6,9,24"..........................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Pagination - page &lt;page> with limit &lt;limit> - #1.1: Pagination - page 1 with limit 1" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 1 titles should be returned.............................................passed
+And the pagination meta should be:..........................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Pagination - page &lt;page> with limit &lt;limit> - #1.2: Pagination - page 3 with limit 10" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 5 titles should be returned.............................................passed
+And the pagination meta should be:..........................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Pagination - page &lt;page> with limit &lt;limit> - #1.3: Pagination - page 1 with limit 50" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 25 titles should be returned............................................passed
+And the pagination meta should be:..........................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Pagination - page &lt;page> with limit &lt;limit> - #1.4: Pagination - page 4 with limit 10" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 0 titles should be returned.............................................passed
+And the pagination meta should be:..........................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Pagination - page &lt;page> with limit &lt;limit> - #1.5: Pagination - page 9999 with limit 50" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And 0 titles should be returned.............................................passed
+And the pagination meta should be:..........................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Paging through the whole catalogue returns every title exactly once" time="0.02">
+    <system-out><![CDATA[When I page through all titles 7 at a time sorted by "rating" in "desc" order..passed
+Then every title in the catalogue should have been returned exactly once....passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Unusual but valid search input is handled safely (&lt;description>) - #1.1: Unusual but valid search input is handled safely (HTML / script tags)" time="0.012">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 0...................................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Unusual but valid search input is handled safely (&lt;description>) - #1.2: Unusual but valid search input is handled safely (SQL injection)" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 0...................................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Unusual but valid search input is handled safely (&lt;description>) - #1.3: Unusual but valid search input is handled safely (unicode and emoji)" time="0.012">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 0...................................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - search, filter, sort and paginate titles" name="Unusual but valid search input is handled safely (&lt;description>) - #1.4: Unusual but valid search input is handled safely (regex metacharacters)" time="0.013">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed
+And the total should be 0...................................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.1: Reject limit=0 (below minimum)" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "limit"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.2: Reject limit=51 (above maximum)" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "limit"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.3: Reject limit=ten (not a number)" time="0.012">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "limit"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.4: Reject limit=10.5 (not an integer)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "limit"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.5: Reject page=0 (below minimum)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "page".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.6: Reject page=-1 (negative)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "page".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.7: Reject page=1e3 (scientific notation)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "page".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.8: Reject minRating=10.5 (above maximum)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "minRating"................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.9: Reject minRating=-0.1 (below minimum)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "minRating"................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.10: Reject minRating=high (not a number)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "minRating"................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.11: Reject yearFrom=1899 (below minimum)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "yearFrom".................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.12: Reject yearTo=20x0 (not an integer)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "yearTo"...................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.13: Reject sort=budget (unsupported sort field)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "sort".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.14: Reject sort=RATING (sort field is case-exact)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "sort".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.15: Reject order=sideways (unsupported order)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "order"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.16: Reject type=podcast (unsupported enum value)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "type".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.17: Reject genre=Horror (genre not in catalogue)" time="0.011">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "genre"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.18: Reject language=Klingon (language not in catalogue)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "language".................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.19: Reject q=a (search term too short)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "q"........................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.20: Reject q=&lt;blank> (blank after trimming)" time="0.01">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "q"........................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Reject &lt;param>=&lt;value> (&lt;reason>) - #1.21: Reject foo=bar (unknown parameter)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error code should be "VALIDATION_ERROR".............................passed
+And the error details should name the parameters "foo"......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Empty parameter value is rejected" time="0.008">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the error details should name the parameters "genre"....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Search term longer than 100 characters is rejected" time="0.007">
+    <system-out><![CDATA[When I search titles with a term of 101 characters..........................passed
+Then the response status should be 400......................................passed
+And the error details should name the parameters "q"........................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Search term of exactly 100 characters is accepted" time="0.008">
+    <system-out><![CDATA[When I search titles with a term of 100 characters..........................passed
+Then the response status should be 200......................................passed
+And the total should be 0...................................................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Repeating a parameter is rejected rather than silently picking one value" time="0.008">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the error details should name the parameters "type".....................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="An inverted year range is rejected" time="0.007">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the error details should name the parameters "yearFrom".................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="All invalid parameters are reported together" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 400......................................passed
+And the response should match the "error" schema............................passed
+And the error details should name the parameters "foo,type,sort,limit"......passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Boundary values that are valid are accepted (&lt;param>=&lt;value>) - #1.1: Boundary values that are valid are accepted (limit=1)" time="0.007">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Boundary values that are valid are accepted (&lt;param>=&lt;value>) - #1.2: Boundary values that are valid are accepted (limit=50)" time="0.008">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Boundary values that are valid are accepted (&lt;param>=&lt;value>) - #1.3: Boundary values that are valid are accepted (minRating=0)" time="0.007">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Boundary values that are valid are accepted (&lt;param>=&lt;value>) - #1.4: Boundary values that are valid are accepted (minRating=10)" time="0.008">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Boundary values that are valid are accepted (&lt;param>=&lt;value>) - #1.5: Boundary values that are valid are accepted (yearFrom=1900)" time="0.008">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Boundary values that are valid are accepted (&lt;param>=&lt;value>) - #1.6: Boundary values that are valid are accepted (yearTo=2100)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed]]></system-out>
+  </testcase>
+  <testcase classname="Catalogue API - invalid and edge-case query parameters" name="Boundary values that are valid are accepted (&lt;param>=&lt;value>) - #1.7: Boundary values that are valid are accepted (q=ab)" time="0.009">
+    <system-out><![CDATA[When I request the titles with:.............................................passed
+Then the response status should be 200......................................passed
+And the response should match the "title list" schema.......................passed]]></system-out>
+  </testcase>
+</testsuite>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<testsuite name="Cucumber" time="44.945" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-29T12:19:23.234Z">
+  <testcase classname="AI self-healing exercise - deliberately broken locators" name="Locator drift check - probe every legacy locator before any step uses it" time="19.839">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I audit every locator in the legacy page object against the live page..passed
+Then all 5 deliberately broken locators should be detected..................passed
+And each broken locator should be handled according to the self-healing mode..passed]]></system-out>
+  </testcase>
+  <testcase classname="AI self-healing exercise - deliberately broken locators" name="Personal loan EMI through the legacy page object (broken locators #1-#4)" time="15.452">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I open the Personal Loan tab using the legacy page object..............passed
+And I type a loan amount of "10L" and an interest rate of 12% using the legacy page object..passed
+And I set a tenure of 5 years using the resilient page object...............passed
+Then the EMI read through the legacy page object should match my independently calculated EMI..passed]]></system-out>
+  </testcase>
+  <testcase classname="AI self-healing exercise - deliberately broken locators" name="A hallucinated locator must not be &quot;healed&quot; onto a different element (broken locator #5)" time="9.557">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I try to click the legacy "Calculate EMI" button.......................passed
+Then the healer should refuse to substitute a different element.............passed]]></system-out>
+  </testcase>
+</testsuite>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<testsuite name="Cucumber" time="0.215" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-29T12:18:07.620Z">
+  <testcase classname="SQL scenarios return exactly the expected rows" name="Round-trip transfers within 10% and 24 hours" time="0.143">
+    <system-out><![CDATA[When I run the "round-trip transfers" query against the seeded database.....passed
+Then the query should return exactly these rows:............................passed
+And no returned row should involve transactions "5,6,7,8,9,10,11,12,22".....passed]]></system-out>
+  </testcase>
+  <testcase classname="SQL scenarios return exactly the expected rows" name="IPL 2024 players with 30+ runs in 3+ consecutive matches" time="0.041">
+    <system-out><![CDATA[When I run the "IPL streaks" query against the seeded database..............passed
+Then the query should return exactly these rows:............................passed
+And no returned row should be for players "Kabir Rao,Sameer Khan,Aditya Bose"..passed]]></system-out>
+  </testcase>
+</testsuite>

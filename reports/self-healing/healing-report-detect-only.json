@@ -1,0 +1,79 @@
+[
+  {
+    "timestamp": "2026-10-29T12:18:47.247Z",
+    "key": "legacy.loanAmountInput",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "#loan-amount",
+    "intent": "Text input where the user types the loan amount",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "none",
+    "status": "detected-only",
+    "validations": []
+  },
+  {
+    "timestamp": "2026-10-29T12:18:50.266Z",
+    "key": "legacy.interestRateInput",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "xpath=/html/body/div[1]/div[3]/div/div[2]/div/form/div[2]/div[1]/div/input",
+    "intent": "Text input for the annual interest rate percentage",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "none",
+    "status": "detected-only",
+    "validations": []
+  },
+  {
+    "timestamp": "2026-10-29T12:18:53.293Z",
+    "key": "legacy.personalLoanTab",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "div.loanproduct-nav > li:nth-child(2) > a",
+    "intent": "Personal Loan tab link in the loan product navigation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "none",
+    "status": "detected-only",
+    "validations": []
+  },
+  {
+    "timestamp": "2026-10-29T12:18:56.327Z",
+    "key": "legacy.emiValue",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "#emiamount > p > strong",
+    "intent": "The displayed monthly Loan EMI amount figure",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "none",
+    "status": "detected-only",
+    "validations": []
+  },
+  {
+    "timestamp": "2026-10-29T12:18:59.345Z",
+    "key": "legacy.calculateButton",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "button:has-text(\"Calculate EMI\")",
+    "intent": "Calculate EMI submit button that triggers the calculation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "none",
+    "status": "detected-only",
+    "validations": []
+  },
+  {
+    "timestamp": "2026-10-29T12:19:04.730Z",
+    "key": "legacy.personalLoanTab",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "div.loanproduct-nav > li:nth-child(2) > a",
+    "intent": "Personal Loan tab link in the loan product navigation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "none",
+    "status": "detected-only",
+    "validations": []
+  },
+  {
+    "timestamp": "2026-10-29T12:19:15.027Z",
+    "key": "legacy.calculateButton",
+    "sourceFile": "tests/pages/legacy/LegacyEmiCalculatorPage.ts",
+    "brokenSelector": "button:has-text(\"Calculate EMI\")",
+    "intent": "Calculate EMI submit button that triggers the calculation",
+    "failure": "locator.waitFor: Timeout 3000ms exceeded.",
+    "engine": "none",
+    "status": "detected-only",
+    "validations": []
+  }
+]

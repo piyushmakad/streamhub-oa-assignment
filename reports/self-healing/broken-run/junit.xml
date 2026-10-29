@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<testsuite name="Cucumber" time="39.813" tests="3" skipped="0" failures="2" errors="0" timestamp="2026-10-29T12:18:40.628Z">
+  <testcase classname="AI self-healing exercise - deliberately broken locators" name="Locator drift check - probe every legacy locator before any step uses it" time="18.786">
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I audit every locator in the legacy page object against the live page..passed
+Then all 5 deliberately broken locators should be detected..................passed
+And each broken locator should be handled according to the self-healing mode..passed]]></system-out>
+  </testcase>
+  <testcase classname="AI self-healing exercise - deliberately broken locators" name="Personal loan EMI through the legacy page object (broken locators #1-#4)" time="10.628">
+    <failure type="TimeoutError2" message="locator.click: Timeout 5000ms exceeded.&#xA;Call log:&#xA;  - waiting for locator('div.loanproduct-nav > li:nth-child(2) > a')&#xA;"><![CDATA[locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator('div.loanproduct-nav > li:nth-child(2) > a')
+
+    at LegacyEmiCalculatorPage.openPersonalLoanTab (D:\Piyush Projects\streamhub-qa-automation\tests\pages\legacy\LegacyEmiCalculatorPage.ts:68:62)
+    at async CustomWorld.<anonymous> (D:\Piyush Projects\streamhub-qa-automation\tests\step-definitions\ui\self-healing.steps.ts:40:3)]]></failure>
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I open the Personal Loan tab using the legacy page object..............failed
+And I type a loan amount of "10L" and an interest rate of 12% using the legacy page object..skipped
+And I set a tenure of 5 years using the resilient page object...............skipped
+Then the EMI read through the legacy page object should match my independently calculated EMI..skipped]]></system-out>
+  </testcase>
+  <testcase classname="AI self-healing exercise - deliberately broken locators" name="A hallucinated locator must not be &quot;healed&quot; onto a different element (broken locator #5)" time="10.291">
+    <failure type="TimeoutError2" message="locator.click: Timeout 5000ms exceeded.&#xA;Call log:&#xA;  - waiting for locator('button:has-text(&quot;Calculate EMI&quot;)')&#xA;"><![CDATA[locator.click: Timeout 5000ms exceeded.
+Call log:
+  - waiting for locator('button:has-text("Calculate EMI")')
+
+    at LegacyEmiCalculatorPage.clickCalculate (D:\Piyush Projects\streamhub-qa-automation\tests\pages\legacy\LegacyEmiCalculatorPage.ts:84:62)
+    at async CustomWorld.<anonymous> (D:\Piyush Projects\streamhub-qa-automation\tests\step-definitions\ui\self-healing.steps.ts:66:5)]]></failure>
+    <system-out><![CDATA[Given I launch the EMI calculator...........................................passed
+When I try to click the legacy "Calculate EMI" button.......................failed
+Then the healer should refuse to substitute a different element.............skipped]]></system-out>
+  </testcase>
+</testsuite>

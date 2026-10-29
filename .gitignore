@@ -1,0 +1,10 @@
+node_modules/
+dist/
+config/env/.env.local
+.env
+*.log
+# Suite console output is committed as test evidence.
+!reports/**/console.log
+test-results/
+playwright-report/
+reports/**/traces/
